@@ -3,152 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finalny Schemat Lejka Marketingowego Nexpertis (Kolory Etapów)</title>
+    <title>Przeprojektowany Schemat Lejka Marketingowego Nexpertis</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <style>
+        /* === Zmienne Kolorów === */
         :root {
             --brand-black: #000000;
             --brand-pink-accent: #ff0055;
             --brand-yellow-main: #ffeb03;
             --brand-white: #ffffff;
-            --brand-green-accent: #06f443;
+            --brand-green-accent: #06f443; /* Raczej nieużywany */
             --brand-blue-purple-main: #5d2de6;
-            --brand-gray-text: #374151;
-            --brand-gray-text-light: #6b7280;
-            --brand-gray-bg: #f9fafb;
-            --brand-gray-border-light: #e5e7eb;
-            --brand-gray-border-medium: #d1d5db;
+            --brand-gray-text: #212529; /* Ciemniejszy szary dla tekstu */
+            --brand-gray-text-light: #6c757d; /* Jaśniejszy szary */
+            --brand-gray-bg: #f8f9fa; /* Jasne tło strony */
+            --brand-gray-border-light: #dee2e6;
+            --brand-gray-border-medium: #ced4da;
             --brand-gray-dark: #495057;
-            --brand-gray-darker: #303030;
-            /* Jasne odcienie dla tła etapów */
-            --brand-yellow-light: #fffbeb; /* TOFU */
-            --brand-blue-purple-light: #f0f0ff; /* MOFU */
-            --brand-green-light: #e0ffe8; /* BOFU */
+            --brand-gray-darker: #343a40;
+            --brand-yellow-light: #fffefa; /* Bardzo jasny żółty */
+            --brand-blue-purple-light: #f5f3ff; /* Bardzo jasny niebiesko-fioletowy */
+            --brand-pink-light: #fff5f7; /* Bardzo jasny różowy */
         }
 
+        /* === Ogólne Style === */
         html { scroll-behavior: smooth; }
-        body { background-color: var(--brand-gray-bg); color: var(--brand-gray-text); }
-        .container { max-width: 900px; }
+        body {
+            background-color: var(--brand-gray-bg);
+            color: var(--brand-gray-text);
+            font-family: 'Inter', sans-serif; /* Font dla body */
+        }
+        .container-main { max-width: 1024px; } /* Szerszy kontener */
+        h2, h3, h4 { font-family: 'Poppins', sans-serif; /* Font dla nagłówków */ }
 
-        .funnel-stage { margin-bottom: 1.5rem; padding-bottom: 1.5rem; }
-        /* Tła dla etapów */
-        #tofu-stage .stage-content { background-color: var(--brand-yellow-light); border: 1px solid var(--brand-yellow-main); }
-        #mofu-stage .stage-content { background-color: var(--brand-blue-purple-light); border: 1px solid var(--brand-blue-purple-main); }
-        #bofu-stage .stage-content { background-color: var(--brand-green-light); border: 1px solid var(--brand-green-accent); }
-        #post-conversion-stage .stage-content { background-color: var(--brand-white); border: 1px solid var(--brand-gray-border-light); } /* Post-konwersja neutralna */
+        /* === Schemat Lejka === */
+        .funnel-stage { margin-bottom: 2rem; padding-bottom: 2rem; }
+        .stage-content {
+            border: 1px solid var(--brand-gray-border-light);
+            border-left-width: 5px; /* Grubsza linia po lewej */
+            border-radius: 0.75rem; /* rounded-xl */
+            padding: 2rem; /* p-8 */
+            background-color: var(--brand-white);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* shadow-md */
+        }
+        /* Kolory dla etapów */
+        #tofu-stage .stage-content { border-left-color: var(--brand-yellow-main); }
+        #mofu-stage .stage-content { border-left-color: var(--brand-blue-purple-main); }
+        #bofu-stage .stage-content { border-left-color: var(--brand-pink-accent); }
+        #post-conversion-stage .stage-content { border-left-color: var(--brand-gray-border-medium); }
 
-        .stage-content { border-radius: 0.5rem; padding: 1.5rem; }
-        .stage-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom-width: 2px; color: var(--brand-black); border-color: var(--brand-gray-border-medium); } /* Usunięto kolorową linię */
-        .subsection-title { font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--brand-black); }
+        .stage-title {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            margin-bottom: 1.5rem; /* mb-6 */
+            padding-bottom: 0.75rem; /* pb-3 */
+            border-bottom: 1px solid var(--brand-gray-border-light);
+            color: var(--brand-black);
+        }
+        .subsection-title { font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: var(--brand-gray-darker); }
         .activity-list { list-style: none; padding: 0; }
         .activity-list > li {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem; /* mb-5 */
             color: var(--brand-gray-text);
             font-size: 0.95rem;
+            line-height: 1.6; /* Lepsza czytelność */
         }
          .activity-list > li > svg, .activity-list > li > img {
-             width: 1.1rem; height: 1.1rem; margin-right: 0.6rem; flex-shrink: 0; margin-top: 0.2rem;
-             color: var(--brand-gray-darker);
+             width: 1.25rem; height: 1.25rem; /* w-5 h-5 */
+             margin-right: 0.75rem; /* mr-3 */
+             flex-shrink: 0; margin-top: 0.15rem;
+             color: var(--brand-gray-dark);
         }
          .sub-list {
-             list-style: none;
-             padding-left: 0;
-             margin-top: 0.5rem;
-             font-size: 0.875rem;
-             color: var(--brand-gray-text-light);
-             space-y: 0.3rem;
+             list-style: none; padding-left: 0; margin-top: 0.75rem; /* mt-3 */
+             font-size: 0.875rem; color: var(--brand-gray-text-light); space-y: 0.3rem;
          }
-         .sub-list li { margin-bottom: 0.25rem; padding-left: 1.25rem; position: relative; line-height: 1.4; }
+         .sub-list li { margin-bottom: 0.25rem; padding-left: 1.5rem; position: relative; line-height: 1.5; }
          .sub-list li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--brand-pink-accent);
-            font-weight: 900;
-            font-size: 1.1em;
-            top: -0.1em;
+            content: '›'; /* Chevron jako punktor */
+            position: absolute; left: 0; color: var(--brand-pink-accent);
+            font-weight: 700; font-size: 1.2em; top: -0.1em;
          }
          .sub-list strong { color: var(--brand-gray-darker); font-weight: 600;}
 
-        .activity-note { display: block; font-size: 0.8rem; color: var(--brand-gray-text-light); margin-top: 0.1rem; padding-left: 1.7rem; }
+        .activity-note { display: block; font-size: 0.8rem; color: var(--brand-gray-text-light); margin-top: 0.25rem; padding-left: 1.95rem; }
         .budget-note { font-weight: 600; color: var(--brand-blue-purple-main); }
-        .flow-arrow { text-align: center; margin: 1rem 0; }
-        .flow-arrow img { height: 1.5rem; width: 1.5rem; display: inline-block; color: var(--brand-gray-border-medium); }
-        .subsection-container { background-color: var(--brand-white); padding: 1rem; border-radius: 0.375rem; margin-bottom: 1rem; border: 1px solid var(--brand-gray-border-light); } /* Podsekcje zawsze białe dla kontrastu */
+        .flow-arrow { text-align: center; margin: 1.5rem 0; }
+        .flow-arrow img { height: 1.75rem; width: 1.75rem; display: inline-block; color: var(--brand-gray-border-medium); }
+        .subsection-container { background-color: var(--brand-white); padding: 1.25rem; border-radius: 0.5rem; margin-bottom: 1.5rem; border: 1px solid var(--brand-gray-border-light); }
         .warning-note { font-weight: 700; color: #dc2626; }
-        .reference-links { background-color: #f3f4f6; padding: 0.75rem 1.5rem; border-radius: 0.375rem; margin-bottom: 1.5rem; border: 1px solid var(--brand-gray-border-light); }
+        .reference-links { background-color: #f3f4f6; padding: 0.75rem 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem; border: 1px solid var(--brand-gray-border-light); }
         .reference-links p { display: flex; align-items: center; margin-bottom: 0.5rem; font-size: 0.875rem; }
-        .reference-links a { color: var(--brand-blue-purple-main); text-decoration: underline; margin-left: 0.5rem; }
+        .reference-links a { color: var(--brand-blue-purple-main); text-decoration: underline; margin-left: 0.5rem; font-weight: 500; }
         .reference-links img { width: 1rem; height: 1rem; margin-right: 0.5rem; color: var(--brand-gray-darker); }
-        .strategy-detail { display: block; font-size: 0.85rem; color: #4b5563; margin-top: 0.25rem; padding-left: 1.7rem; }
         .internal-link { color: var(--brand-blue-purple-main); text-decoration: underline; font-weight: 500;}
         .internal-link:hover { filter: brightness(1.2); }
 
+        /* === Tabela Budżetowa === */
+        .budget-comparison-table { width: 100%; max-width: 42rem; margin: 2rem auto; border-collapse: collapse; font-size: 0.9rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); border-radius: 0.75rem; overflow: hidden; }
+        .budget-comparison-table th, .budget-comparison-table td { border: 1px solid var(--brand-gray-border-light); padding: 0.8rem 1rem; text-align: left; }
+        .budget-comparison-table th { background-color: var(--brand-yellow-main); font-weight: 700; color: var(--brand-black); font-family: 'Poppins', sans-serif; }
+        .budget-comparison-table tbody tr:nth-child(even) { background-color: var(--brand-gray-bg-light); }
+         .budget-comparison-table td:not(:first-child) { text-align: right; font-weight: 500; }
+         .budget-comparison-table tfoot td { font-weight: 700; border-top: 2px solid var(--brand-gray-border-medium); }
+         .optimization-note-table { text-align: center; margin-top: 0.75rem; margin-bottom: 2rem; font-size: 0.8rem; font-weight: 600; color: #dc2626; }
+         .strategic-focus { color: var(--brand-pink-accent); font-weight: 600; }
+
+        /* === Sekcja Person (Zakładki) === */
+         .persona-section { margin-top: 3rem; padding-top: 3rem; border-top: 2px dashed var(--brand-gray-border-medium); }
+         .persona-title { font-size: 1.75rem; font-weight: 700; color: var(--brand-black); margin-bottom: 2rem; text-align: center; }
+         .persona-tabs { display: flex; border-bottom: 2px solid var(--brand-gray-border-medium); margin-bottom: 2rem; justify-content: center; }
+         .persona-tab {
+             padding: 0.8rem 1.75rem; margin-bottom: -2px; border: 2px solid transparent; border-bottom: none; cursor: pointer; font-weight: 600; color: var(--brand-gray-text-light); background-color: transparent; border-top-left-radius: 0.5rem; border-top-right-radius: 0.5rem; transition: all 0.2s ease-in-out;
+         }
+         .persona-tab:hover { color: var(--brand-gray-darker); background-color: var(--brand-gray-bg-light); }
+         .persona-tab.active { background-color: var(--brand-white); border-color: var(--brand-gray-border-medium); color: var(--brand-pink-accent); border-bottom: 2px solid var(--brand-white); } /* Różowy akcent dla aktywnej zakładki */
+         .persona-content { display: none; background-color: var(--brand-white); border: 1px solid var(--brand-gray-border-light); padding: 2rem; border-radius: 0.75rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+         .persona-content.active { display: block; }
+         .persona-name { font-size: 1.35rem; font-weight: 700; color: var(--brand-pink-accent); margin-bottom: 1.25rem; }
+         .persona-stage-title { font-size: 1rem; font-weight: 600; color: var(--brand-blue-purple-main); margin-top: 1.5rem; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--brand-gray-border-light); padding-bottom: 0.25rem; }
+         .persona-needs { font-style: italic; color: var(--brand-gray-dark); margin-bottom: 1rem; font-size: 0.9rem; }
+         .persona-content-list { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.6; }
+         .persona-paid-list { list-style: none; padding-left: 0; font-size: 0.9rem; }
+         .persona-paid-list li { margin-bottom: 0.5rem; }
+         .persona-paid-list strong { color: var(--brand-gray-darker); }
+         .blog-topic-list { list-style: square; padding-left: 1.5rem; margin-top: 0.5rem; font-size: 0.9rem; color: var(--brand-gray-text);}
+         .blog-topic-list li { margin-bottom: 0.25rem;}
+
+        /* === Sekcja Remarketingu === */
         .remarketing-container { max-width: 900px; }
-        .list-container { border: 1px solid var(--brand-gray-border-light); border-radius: 0.5rem; padding: 1.5rem; background-color: var(--brand-white); margin-bottom: 1rem; height: 100%; display: flex; flex-direction: column; }
+        .list-container { border: 1px solid var(--brand-gray-border-light); border-radius: 0.75rem; padding: 1.5rem; background-color: var(--brand-white); margin-bottom: 1rem; height: 100%; display: flex; flex-direction: column; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
         .list-title { font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; }
         .list-icon { width: 1.5rem; height: 1.5rem; margin-right: 0.5rem; flex-shrink: 0; color: var(--brand-blue-purple-main); }
-        .section-title { font-weight: 500; color: var(--brand-gray-dark); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .section-title { font-weight: 600; color: var(--brand-gray-dark); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
         .content { font-size: 0.95rem; color: var(--brand-gray-text); flex-grow: 1; }
         .content ul { list-style: none; padding-left: 0; }
         .content li { display: flex; align-items: center; margin-bottom: 0.5rem; }
         .content li img { width: 1rem; height: 1rem; margin-right: 0.5rem; color: var(--brand-gray-darker); }
         .flow-arrow-h { text-align: center; margin: auto 1rem; align-self: center; }
         .flow-arrow-h img { height: 2rem; width: 2rem; display: inline-block; color: var(--brand-gray-border-medium); }
-        hr.section-divider { margin-top: 3rem; margin-bottom: 3rem; border-top-width: 2px; border-color: var(--brand-gray-border-medium); }
-
-        .budget-comparison-table { width: 100%; max-width: 42rem; margin: 1.5rem auto; border-collapse: collapse; font-size: 0.875rem; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); border-radius: 0.5rem; overflow: hidden; }
-        .budget-comparison-table th, .budget-comparison-table td { border: 1px solid var(--brand-gray-border-light); padding: 0.75rem; text-align: left; }
-        .budget-comparison-table th { background-color: var(--brand-yellow-main); font-weight: 600; color: var(--brand-black); }
-        .budget-comparison-table tbody tr:nth-child(even) { background-color: #fdfdfd; } /* Lighter gray for even rows */
-         .budget-comparison-table td:not(:first-child) { text-align: right; }
-         .budget-comparison-table tfoot td { font-weight: 600; border-top: 2px solid var(--brand-gray-border-light); }
-         .optimization-note-table { text-align: center; margin-top: 0.5rem; margin-bottom: 1.5rem; font-size: 0.75rem; font-weight: 600; color: #dc2626; }
-         .strategic-focus { color: var(--brand-pink-accent); font-weight: 600; }
-
-         .persona-section { margin-top: 2.5rem; padding-top: 2.5rem; border-top: 2px dashed var(--brand-gray-medium); }
-         .persona-title { font-size: 1.5rem; font-weight: 700; color: var(--brand-black); margin-bottom: 1.5rem; text-align: center; }
-         .persona-tabs { display: flex; border-bottom: 1px solid var(--brand-gray-border-medium); margin-bottom: 1.5rem; }
-         .persona-tab {
-             padding: 0.75rem 1.5rem; margin-bottom: -1px; border: 1px solid transparent; border-bottom: none; cursor: pointer; font-weight: 500; color: var(--brand-gray-text-light); background-color: transparent; border-top-left-radius: 0.375rem; border-top-right-radius: 0.375rem;
-         }
-         .persona-tab:hover { background-color: #f3f4f6; border-color: var(--brand-gray-border-light); }
-         .persona-tab.active { background-color: var(--brand-white); border-color: var(--brand-gray-border-medium); color: var(--brand-pink-accent); font-weight: 600; border-bottom: 1px solid white; }
-         .persona-content { display: none; background-color: var(--brand-white); border: 1px solid var(--brand-gray-border-light); padding: 1.5rem; border-radius: 0.5rem; }
-         .persona-content.active { display: block; }
-         .persona-name { font-size: 1.25rem; font-weight: 600; color: var(--brand-pink-accent); margin-bottom: 1rem; }
-         .persona-stage-title { font-size: 1rem; font-weight: 600; color: var(--brand-blue-purple-main); margin-top: 1rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
-         .persona-needs { font-style: italic; color: #4b5563; margin-bottom: 1rem; font-size: 0.9rem; }
-         .persona-content-list { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; font-size: 0.9rem; }
-         .persona-paid-list { list-style: none; padding-left: 0; font-size: 0.9rem; }
-         .persona-paid-list li { margin-bottom: 0.5rem; }
-         .persona-paid-list strong { color: var(--brand-dark); }
-         .blog-topic-list { list-style: square; padding-left: 1.5rem; margin-top: 0.5rem; font-size: 0.85rem; color: var(--brand-gray-text);}
-         .blog-topic-list li { margin-bottom: 0.25rem;}
-
-         #lista-2-definicja .list-icon { color: var(--brand-pink-accent) !important; }
-         #lista-2-definicja .list-title { color: var(--brand-pink-accent); }
+        hr.section-divider { margin-top: 4rem; margin-bottom: 4rem; border-top-width: 1px; border-style: dashed; border-color: var(--brand-gray-border-medium); }
+        #lista-1-definicja .list-title { color: var(--brand-blue-purple-main); }
+        #lista-2-definicja .list-icon { color: var(--brand-pink-accent) !important; }
+        #lista-2-definicja .list-title { color: var(--brand-pink-accent); }
 
 
     </style>
 </head>
-<body class="bg-gray-100 p-4 md:p-8 font-sans" style="color: var(--brand-gray-text);">
+<body class="p-4 md:p-8 font-sans">
 
-    <div class="container mx-auto max-w-5xl mb-12">
+    <div class="container-main mx-auto max-w-5xl mb-12">
 
-        <h2 class="text-3xl font-bold text-center mb-4" style="color: var(--brand-black);">Zintegrowany Wizualny Lejek Marketingowy Nexpertis</h2>
-        <p class="text-center mb-2 text-sm" style="color: var(--brand-gray-dark);">Opracowany na podstawie analizy biznesowej, porównanie budżetów 5k vs 8k PLN/mc.</p>
-        <p class="text-center mb-6 text-sm">Kluczowe fokusy strategiczne: <span class="strategic-focus">KSeF</span>, <span class="strategic-focus">Segmentacja</span> (branża/problem), <span class="strategic-focus">Premium Partner WEBCON</span>, <span class="strategic-focus">Wyniki Case Study</span>.</p>
+        <h2 class="text-4xl font-bold text-center mb-6" style="color: var(--brand-black); font-family: 'Poppins', sans-serif;">Zintegrowany Lejek Marketingowy Nexpertis</h2>
+        <p class="text-center mb-4 text-base" style="color: var(--brand-gray-dark);">Strategia dla budżetu 8000 PLN/mc, oparta na analizie biznesowej.</p>
+        <p class="text-center mb-8 text-base">Kluczowe fokusy: <span class="strategic-focus">KSeF</span>, <span class="strategic-focus">Segmentacja</span>, <span class="strategic-focus">Premium Partner WEBCON</span>, <span class="strategic-focus">Case Studies</span>.</p>
 
         <table class="budget-comparison-table">
-            <caption class="text-lg font-semibold p-4" style="color: var(--brand-gray-darker);">Orientacyjny Podział Budżetu wg Etapów Lejka</caption>
+            <caption class="text-xl font-semibold p-4 text-center" style="color: var(--brand-gray-darker);">Orientacyjny Podział Budżetu wg Etapów Lejka</caption>
             <thead>
                 <tr>
-                    <th style="background-color: var(--brand-yellow-main); color: var(--brand-black);">Etap Lejka</th>
-                    <th style="background-color: var(--brand-yellow-main); color: var(--brand-black);">Budżet 5000 PLN (Poprzedni)</th>
-                    <th style="background-color: var(--brand-yellow-main); color: var(--brand-black);">Budżet 8000 PLN (<strong>Rekomendowany</strong>)</th>
+                    <th>Etap Lejka</th>
+                    <th>Budżet 5000 PLN (Poprzedni)</th>
+                    <th>Budżet 8000 PLN (<strong>Rekomendowany</strong>)</th>
                 </tr>
             </thead>
             <tbody>
@@ -182,20 +203,20 @@
         <div class="reference-links">
              <p><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/sheet.svg" alt="Arkusz" loading="lazy">
                 <span>Plan Mediowy:</span>
-                <a href="https://docs.google.com/spreadsheets/d/1uPjHhyINvleHaZs8ALCsxNhEfjPs4P6ahPybOIAKZjY/edit?gid=887258614#gid=887258614" target="_blank" rel="noopener noreferrer" style="color: var(--brand-blue-purple-main);">Otwórz Arkusz</a>
+                <a href="https://docs.google.com/spreadsheets/d/1uPjHhyINvleHaZs8ALCsxNhEfjPs4P6ahPybOIAKZjY/edit?gid=887258614#gid=887258614" target="_blank" rel="noopener noreferrer">Otwórz Arkusz</a>
              </p>
              <p><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/megaphone.svg" alt="Reklamy" loading="lazy">
                 <span>Szczegóły Reklam LI/Meta:</span>
-                <a href="https://docs.google.com/spreadsheets/d/1cvqvD15lL_3Yula46UAA9YAHy7ssyrjKWvEVR15gwug/edit?gid=756620190#gid=756620190" target="_blank" rel="noopener noreferrer" style="color: var(--brand-blue-purple-main);">Otwórz Arkusz</a>
+                <a href="https://docs.google.com/spreadsheets/d/1cvqvD15lL_3Yula46UAA9YAHy7ssyrjKWvEVR15gwug/edit?gid=756620190#gid=756620190" target="_blank" rel="noopener noreferrer">Otwórz Arkusz</a>
              </p>
         </div>
 
         <section class="funnel-stage" id="tofu-stage">
-            <div class="stage-content shadow-sm">
-                <h3 class="stage-title" style="color: var(--brand-black);">ETAP 1: TOFU - Budowanie Świadomości i Zasięgu</h3>
-                <p class="text-sm mb-6" style="color: var(--brand-gray-dark);">Cel: Dotarcie do segmentów (np. <strong>Logistyka, Finanse</strong>; role: <strong>IT, Księgowość, Managerowie</strong>), edukacja (<strong>KSeF</strong>, <strong>low-code</strong>), budowanie świadomości Nexpertis (<strong>Premium Partner WEBCON</strong>).</p>
+            <div class="stage-content shadow-lg rounded-xl">
+                <h3 class="stage-title">ETAP 1: TOFU - Budowanie Świadomości i Zasięgu</h3>
+                <p class="text-base mb-8" style="color: var(--brand-gray-dark);">Cel: Dotarcie do segmentów (np. <strong>Logistyka, Finanse</strong>; role: <strong>IT, Księgowość, Managerowie</strong>), edukacja (<strong>KSeF</strong>, <strong>low-code</strong>), budowanie świadomości Nexpertis (<strong>Premium Partner WEBCON</strong>).</p>
 
-                <div class="grid md:grid-cols-2 gap-6">
+                <div class="grid md:grid-cols-2 gap-8">
                     <div class="subsection-container">
                         <h4 class="subsection-title">Działania Organiczne</h4>
                         <ul class="activity-list">
@@ -267,11 +288,11 @@
         </section>
 
         <section class="funnel-stage" id="mofu-stage">
-             <div class="stage-content shadow-sm">
-                <h3 class="stage-title" style="color: var(--brand-black); border-color: var(--brand-blue-purple-main);">ETAP 2: MOFU - Generowanie Leadów i Nurturing</h3>
-                <p class="text-sm mb-6" style="color: var(--brand-gray-dark);">Cel: Konwersja ruchu w leady (MQL), <strong>segmentacja</strong> (rola/branża/problem - np. KSeF), budowanie zaufania (<strong>Premium Partner</strong>, <strong>Case Studies</strong>).</p>
+             <div class="stage-content shadow-lg rounded-xl">
+                <h3 class="stage-title">ETAP 2: MOFU - Generowanie Leadów i Nurturing</h3>
+                <p class="text-base mb-8" style="color: var(--brand-gray-dark);">Cel: Konwersja ruchu w leady (MQL), <strong>segmentacja</strong> (rola/branża/problem - np. KSeF), budowanie zaufania (<strong>Premium Partner</strong>, <strong>Case Studies</strong>).</p>
 
-                <div class="grid md:grid-cols-2 gap-6">
+                <div class="grid md:grid-cols-2 gap-8">
                     <div class="subsection-container">
                          <h4 class="subsection-title">Magnesy na Leady (Segmentowane!) & Nurturing</h4>
                          <ul class="activity-list">
@@ -330,11 +351,11 @@
         </section>
 
         <section class="funnel-stage" id="bofu-stage">
-             <div class="stage-content shadow-sm">
-                <h3 class="stage-title" style="color: var(--brand-black); border-color: var(--brand-green-accent);">ETAP 3: BOFU - Decyzja i Konwersja Sprzedażowa</h3>
-                <p class="text-sm mb-6" style="color: var(--brand-gray-dark);">Cel: Konwersja MQL w SQL przez ofertę konsultacji/demo, podkreślenie wartości (<strong>Premium Partner</strong>, <strong>wyniki klientów</strong>, <strong>opinie</strong>).</p>
+             <div class="stage-content shadow-lg rounded-xl">
+                <h3 class="stage-title">ETAP 3: BOFU - Decyzja i Konwersja Sprzedażowa</h3>
+                <p class="text-base mb-8" style="color: var(--brand-gray-dark);">Cel: Konwersja MQL w SQL przez ofertę konsultacji/demo, podkreślenie wartości (<strong>Premium Partner</strong>, <strong>wyniki klientów</strong>, <strong>opinie</strong>).</p>
 
-                <div class="grid md:grid-cols-2 gap-6">
+                <div class="grid md:grid-cols-2 gap-8">
                     <div class="subsection-container">
                         <h4 class="subsection-title">Oferta i Działania Sprzedażowe</h4>
                         <ul class="activity-list">
@@ -376,9 +397,9 @@
         </section>
 
         <section class="funnel-stage" id="post-conversion-stage">
-             <div class="stage-content shadow-sm" style="background-color: var(--brand-gray-bg-light);">
-                <h3 class="stage-title" style="border-color: var(--brand-gray-border-medium); color: var(--brand-black);">ETAP 4: Post-Konwersja - Sprzedaż i Utrzymanie</h3>
-                 <p class="text-sm mb-6" style="color: var(--brand-gray-dark);">Cel: Zamknięcie sprzedaży, utrzymanie klienta, dosprzedaż.</p>
+             <div class="stage-content shadow-lg rounded-xl" style="background-color: #f1f3f5; border-left-color: var(--brand-gray-border-medium);">
+                <h3 class="stage-title" style="color: var(--brand-black); border-color: var(--brand-gray-border-medium);">ETAP 4: Post-Konwersja - Sprzedaż i Utrzymanie</h3>
+                 <p class="text-base mb-8" style="color: var(--brand-gray-dark);">Cel: Zamknięcie sprzedaży, utrzymanie klienta, dosprzedaż.</p>
                  <div class="subsection-container bg-white">
                      <ul class="activity-list">
                         <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/handshake.svg" alt="Sprzedaż" class="funnel-icon" loading="lazy"><span>Proces sprzedażowy (oferta, umowa).</span></li>
@@ -391,9 +412,9 @@
             </div>
         </section>
 
-        <section class="mt-10 pt-6 border-t border-gray-300">
-             <h3 class="text-xl font-semibold mb-6 text-center" style="color: var(--brand-dark);">Elementy Wspierające Cały Lejek</h3>
-             <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm" style="color: var(--brand-gray-text);">
+        <section class="mt-12 pt-8 border-t border-gray-300">
+             <h3 class="text-2xl font-semibold mb-8 text-center" style="color: var(--brand-dark); font-family: 'Poppins', sans-serif;">Elementy Wspierające Cały Lejek</h3>
+             <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-base" style="color: var(--brand-gray-text);">
                  <span class="flex items-center"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/bar-chart-3.svg" alt="Analityka" class="funnel-icon" loading="lazy">Analityka (GA4, GTM)</span>
                  <span class="flex items-center"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/crosshair.svg" alt="Śledzenie" class="funnel-icon" loading="lazy">Śledzenie (UTM, Piksele, Konwersje)</span>
                  <span class="flex items-center"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/database.svg" alt="CRM" class="funnel-icon" loading="lazy">CRM / Marketing Automation</span>
