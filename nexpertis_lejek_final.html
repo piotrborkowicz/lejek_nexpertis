@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalny Czysty Schemat Lejka Marketingowego Nexpertis (Wersja Ostateczna)</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .funnel-stage { margin-bottom: 1.5rem; padding-bottom: 1.5rem; }
+        .stage-content { border: 1px solid #e5e7eb; border-radius: 0.5rem; padding: 1.5rem; background-color: #ffffff; }
+        .stage-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom-width: 2px; }
+        .subsection-title { font-size: 1.125rem; font-weight: 500; margin-bottom: 0.75rem; color: #1f2937; }
+        .activity-list { list-style: none; padding: 0; }
+        .activity-list > li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            color: #374151;
+            font-size: 0.95rem;
+        }
+         .activity-list > li > svg, .activity-list > li > img {
+             width: 1.1rem; height: 1.1rem; margin-right: 0.6rem; flex-shrink: 0; margin-top: 0.2rem;
+        }
+         .sub-list {
+             list-style: none;
+             padding-left: 0;
+             margin-top: 0.5rem;
+             font-size: 0.875rem;
+             color: #4b5563;
+             space-y: 0.3rem;
+         }
+         .sub-list li { margin-bottom: 0.25rem; padding-left: 1.25rem; position: relative; line-height: 1.4; }
+         .sub-list li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: #6b7280;
+            font-weight: 600;
+         }
+         .sub-list strong { color: #374151; font-weight: 600;}
+
+        .activity-note { display: block; font-size: 0.8rem; color: #6b7280; margin-top: 0.1rem; padding-left: 1.7rem; }
+        .budget-note { font-weight: 600; color: #1e40af; }
+        .flow-arrow { text-align: center; margin: 1rem 0; }
+        .flow-arrow img { height: 1.5rem; width: 1.5rem; display: inline-block; color: #9ca3af; }
+        .subsection-container { background-color: #f9fafb; padding: 1rem; border-radius: 0.375rem; margin-bottom: 1rem; border: 1px solid #f3f4f6; }
+        .warning-note { font-weight: 700; color: #dc2626; }
+        .reference-links { background-color: #f3f4f6; padding: 0.75rem 1.5rem; border-radius: 0.375rem; margin-bottom: 1.5rem; border: 1px solid #e5e7eb; }
+        .reference-links p { display: flex; align-items: center; margin-bottom: 0.5rem; font-size: 0.875rem; }
+        .reference-links a { color: #2563eb; text-decoration: underline; margin-left: 0.5rem; }
+        .reference-links img { width: 1rem; height: 1rem; margin-right: 0.5rem; color: #4b5563; }
+        .strategy-detail { display: block; font-size: 0.85rem; color: #4b5563; margin-top: 0.25rem; padding-left: 1.7rem; }
+        .internal-link { color: #1d4ed8; text-decoration: underline; font-weight: 500;}
+        .internal-link:hover { color: #1e40af; }
+
+        .remarketing-container { max-width: 900px; }
+        .list-container { border: 1px solid #e5e7eb; border-radius: 0.5rem; padding: 1.5rem; background-color: #f9fafb; margin-bottom: 1rem; height: 100%; display: flex; flex-direction: column; }
+        .list-title { font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; }
+        .list-icon { width: 1.5rem; height: 1.5rem; margin-right: 0.5rem; flex-shrink: 0; }
+        .section-title { font-weight: 500; color: #4b5563; margin-top: 1rem; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .content { font-size: 0.95rem; color: #374151; flex-grow: 1; }
+        .content ul { list-style: none; padding-left: 0; }
+        .content li { display: flex; align-items: center; margin-bottom: 0.5rem; }
+        .content li img { width: 1rem; height: 1rem; margin-right: 0.5rem; color: #6b7280; }
+        .flow-arrow-h { text-align: center; margin: auto 1rem; align-self: center; }
+        .flow-arrow-h img { height: 2rem; width: 2rem; display: inline-block; color: #9ca3af; }
+        hr.section-divider { margin-top: 3rem; margin-bottom: 3rem; border-top-width: 2px; border-color: #d1d5db; }
+
+        .budget-comparison-table { width: 100%; max-width: 42rem; margin: 1.5rem auto; border-collapse: collapse; font-size: 0.875rem; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); border-radius: 0.5rem; overflow: hidden; }
+        .budget-comparison-table th, .budget-comparison-table td { border: 1px solid #e5e7eb; padding: 0.75rem; text-align: left; }
+        .budget-comparison-table th { background-color: #f3f4f6; font-weight: 600; color: #374151; }
+        .budget-comparison-table tbody tr:nth-child(even) { background-color: #f9fafb; }
+         .budget-comparison-table td:not(:first-child) { text-align: right; }
+         .budget-comparison-table tfoot td { font-weight: 600; border-top: 2px solid #e5e7eb; }
+         .optimization-note-table { text-align: center; margin-top: 0.5rem; margin-bottom: 1.5rem; font-size: 0.75rem; font-weight: 600; color: #dc2626; }
+         .strategic-focus { color: #86198f; font-weight: 600; }
+
+         .persona-section { margin-top: 2.5rem; padding-top: 2.5rem; border-top: 2px dashed #cbd5e1; }
+         .persona-title { font-size: 1.5rem; font-weight: 700; color: #1e3a8a; margin-bottom: 1.5rem; text-align: center; }
+         .persona-tabs { display: flex; border-bottom: 1px solid #d1d5db; margin-bottom: 1.5rem; }
+         .persona-tab {
+             padding: 0.75rem 1.5rem;
+             margin-bottom: -1px;
+             border: 1px solid transparent;
+             border-bottom: none;
+             cursor: pointer;
+             font-weight: 500;
+             color: #4b5563;
+             background-color: transparent;
+             border-top-left-radius: 0.375rem;
+             border-top-right-radius: 0.375rem;
+         }
+         .persona-tab:hover { background-color: #f3f4f6; border-color: #e5e7eb; }
+         .persona-tab.active { background-color: #ffffff; border-color: #d1d5db; color: #1d4ed8; font-weight: 600; }
+         .persona-content { display: none; background-color: #f0f9ff; border: 1px solid #e0f2fe; padding: 1.5rem; border-radius: 0.5rem; }
+         .persona-content.active { display: block; }
+         .persona-name { font-size: 1.25rem; font-weight: 600; color: #075985; margin-bottom: 1rem; }
+         .persona-stage-title { font-size: 1rem; font-weight: 600; color: #0369a1; margin-top: 1rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+         .persona-needs { font-style: italic; color: #4b5563; margin-bottom: 1rem; font-size: 0.9rem; }
+         .persona-content-list { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; font-size: 0.9rem; }
+         .persona-paid-list { list-style: none; padding-left: 0; font-size: 0.9rem; }
+         .persona-paid-list li { margin-bottom: 0.5rem; }
+         .persona-paid-list strong { color: #1f2937; }
+         .blog-topic-list { list-style: square; padding-left: 1.5rem; margin-top: 0.5rem; font-size: 0.85rem; color: #374151;}
+         .blog-topic-list li { margin-bottom: 0.25rem;}
+
+    </style>
+</head>
+<body class="bg-gray-100 p-4 md:p-8 font-sans">
+
+    <div class="container mx-auto max-w-5xl mb-12">
+
+        <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Zintegrowany Wizualny Lejek Marketingowy Nexpertis</h2>
+        <p class="text-center text-gray-600 mb-2 text-sm">Opracowany na podstawie analizy biznesowej, porównanie budżetów 5k vs 8k PLN/mc.</p>
+        <p class="text-center text-gray-600 mb-6 text-sm">Kluczowe fokusy strategiczne: <span class="strategic-focus">KSeF</span>, <span class="strategic-focus">Segmentacja</span> (branża/problem), <span class="strategic-focus">Premium Partner WEBCON</span>, <span class="strategic-focus">Wyniki Case Study</span>.</p>
+
+        <table class="budget-comparison-table">
+            <caption class="text-lg font-semibold p-4 text-gray-700">Orientacyjny Podział Budżetu wg Etapów Lejka</caption>
+            <thead>
+                <tr>
+                    <th>Etap Lejka</th>
+                    <th>Budżet 5000 PLN (Poprzedni)</th>
+                    <th>Budżet 8000 PLN (<strong>Rekomendowany</strong>)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Góra Lejka (TOFU - Świadomość)</td>
+                    <td>~1500 PLN</td>
+                    <td>~1900 PLN</td>
+                </tr>
+                <tr>
+                    <td>Środek Lejka (MOFU - Rozważanie / Lead Gen)</td>
+                    <td>~1500 PLN</td>
+                    <td>~2800 PLN</td>
+                </tr>
+                <tr>
+                    <td>Dół Lejka (BOFU - Decyzja / Konwersja)</td>
+                    <td>~2000 PLN</td>
+                    <td>~3300 PLN</td>
+                </tr>
+            </tbody>
+             <tfoot>
+                 <tr>
+                     <td><strong>Łącznie</strong></td>
+                     <td><strong>5000 PLN</strong></td>
+                     <td><strong>8000 PLN</strong></td>
+                 </tr>
+             </tfoot>
+        </table>
+        <p class="optimization-note-table">Podział budżetów jest startowy i wymaga optymalizacji!</p>
+
+
+        <div class="reference-links">
+             <p><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/sheet.svg" alt="Arkusz" loading="lazy">
+                <span>Plan Mediowy:</span>
+                <a href="https://docs.google.com/spreadsheets/d/1uPjHhyINvleHaZs8ALCsxNhEfjPs4P6ahPybOIAKZjY/edit?gid=887258614#gid=887258614" target="_blank" rel="noopener noreferrer">Otwórz Arkusz</a>
+             </p>
+             <p><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/megaphone.svg" alt="Reklamy" loading="lazy">
+                <span>Szczegóły Reklam LI/Meta:</span>
+                <a href="https://docs.google.com/spreadsheets/d/1cvqvD15lL_3Yula46UAA9YAHy7ssyrjKWvEVR15gwug/edit?gid=756620190#gid=756620190" target="_blank" rel="noopener noreferrer">Otwórz Arkusz</a>
+             </p>
+        </div>
+
+        <section class="funnel-stage">
+            <div class="stage-content shadow-sm">
+                <h3 class="stage-title border-blue-500 text-blue-800">ETAP 1: TOFU - Budowanie Świadomości i Zasięgu</h3>
+                <p class="text-sm text-gray-600 mb-6">Cel: Dotarcie do segmentów (np. <strong>Logistyka, Finanse</strong>; role: <strong>IT, Księgowość, Managerowie</strong>), edukacja (<strong>KSeF</strong>, <strong>low-code</strong>), budowanie świadomości Nexpertis (<strong>Premium Partner WEBCON</strong>).</p>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="subsection-container">
+                        <h4 class="subsection-title text-blue-700">Działania Organiczne</h4>
+                        <ul class="activity-list">
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/newspaper.svg" alt="Blog" class="funnel-icon text-blue-600" loading="lazy">
+                                <div><strong>Blog Nexpertis:</strong> Artykuły SEO (<strong>KSeF</strong>, WEBCON, Power Platform).
+                                    <span class="activity-note">Przykładowe tematy dla Person:</span>
+                                    <ul class="blog-topic-list">
+                                        <li><strong>Księgowi:</strong> Digitalizacja księgowości; Obieg faktur bez papieru; KSeF - co trzeba wiedzieć?</li>
+                                        <li><strong>IT:</strong> Automatyzacja procesów IT; Digitalizacja infrastruktury; Low-code dla działu IT.</li>
+                                    </ul>
+                                    <span class="activity-note">Zapewnić wyraźne CTA do MOFU.</span>
+                                </div>
+                            </li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/youtube.svg" alt="YouTube" class="funnel-icon text-red-600" loading="lazy">
+                                <div><strong>Kanały YouTube ("Nexpertis" & "Nexperts Academy"):</strong> <span class="activity-note">Podcasty, Case Studies, Webinary, Szkolenia.</span></div>
+                            </li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/podcast.svg" alt="Podcast" class="funnel-icon text-purple-600" loading="lazy">
+                                <div><strong>Podcast ("Digital Butterfly"):</strong> Budowanie autorytetu.</div>
+                            </li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/linkedin.svg" alt="LinkedIn" class="funnel-icon text-sky-700" loading="lazy">
+                                <div><strong>Aktywność Ekspertów (Profile Osobiste):</strong> Organiczne posty (<strong>KSeF</strong>, <strong>low-code</strong>, sukcesy).
+                                <span class="activity-note"><strong>Ważne:</strong> Budowanie zasięgu organicznego i autorytetu; inspiracja dla płatnych Thought Leader Ads (MOFU). Nie rekomenduje się *płatnego* promowania tych postów bezpośrednio w TOFU. Poprawa zaangażowania: wartość, interakcje, wsparcie zespołu.</span></div>
+                            </li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Newsletter" class="funnel-icon text-teal-600" loading="lazy"><span><strong>Newsletter Ogólny:</strong> Dystrybucja treści.</span></li>
+                        </ul>
+                    </div>
+                    <div class="subsection-container">
+                        <h4 class="subsection-title text-blue-700">Działania Płatne (TOFU/Wsparcie - Budżet ~1900 zł)</h4>
+                        <ul class="activity-list">
+                             <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/facebook.svg" alt="Meta Ads" class="funnel-icon text-indigo-700" loading="lazy">
+                                 <div>
+                                     <strong>Meta Ads (<span class="budget-note">~800 zł</span>):</strong>
+                                     <ul class="sub-list">
+                                         <li><strong>Cel:</strong> Zasięg, Ruch, budowanie <a href="#lista-1-definicja" class="internal-link">listy #1</a>.</li>
+                                         <li><strong>Strategia:</strong> Promocja wybranych postów firmowych (linki do treści organicznych, info o <strong>KSeF</strong>).</li>
+                                         <li><strong>Targetowanie:</strong> Lookalikes, Zainteresowania (np. <strong>KSeF</strong>, <strong>Finanse</strong>, <strong>Logistyka</strong>).</li>
+                                     </ul>
+                                 </div>
+                             </li>
+                             <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/linkedin.svg" alt="LinkedIn Ads" class="funnel-icon text-sky-800" loading="lazy">
+                                <div>
+                                    <strong>LinkedIn Ads (<span class="budget-note">~600 zł</span>):</strong>
+                                     <ul class="sub-list">
+                                         <li><strong>Cel:</strong> Zasięg B2B, Ruch, budowanie <a href="#lista-1-definicja" class="internal-link">listy #1</a>.</li>
+                                         <li><strong>Format:</strong> Sponsored Content.</li>
+                                         <li><strong>Treść:</strong> Promocja wybranych postów firmowych (treści edukacyjne - <strong>low-code</strong>, <strong>KSeF</strong>).</li>
+                                         <li><strong>Targetowanie:</strong> <strong>Branże</strong>, Funkcje (IT, Finanse), Wielkość firmy.</li>
+                                     </ul>
+                                </div>
+                            </li>
+                             <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/youtube.svg" alt="YouTube Ads" class="funnel-icon text-red-700" loading="lazy">
+                                <div>
+                                    <strong>YouTube Ads (<span class="budget-note">~500 zł</span>):</strong>
+                                     <ul class="sub-list">
+                                         <li><strong>Cel:</strong> Budowanie świadomości problemu (<strong>KSeF</strong>) i marki (<strong>Premium Partner</strong>).</li>
+                                         <li><strong>Formaty:</strong> Skippable In-Stream (15-30s), Non-Skippable (do 15s).</li>
+                                         <li><strong>Treść:</strong> Wykorzystanie materiałów z organicznych kanałów YT Nexpertis.</li>
+                                         <li><strong>Targetowanie:</strong> Zainteresowania (oprogramowanie biznesowe), Kontekstowe.</li>
+                                     </ul>
+                                </div>
+                            </li>
+                         </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="flow-arrow">
+                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/arrow-down.svg" alt="Strzałka w dół" loading="lazy">
+            </div>
+        </section>
+
+        <section class="funnel-stage">
+             <div class="stage-content shadow-sm">
+                <h3 class="stage-title border-green-500 text-green-800">ETAP 2: MOFU - Generowanie Leadów i Nurturing</h3>
+                <p class="text-sm text-gray-600 mb-6">Cel: Konwersja ruchu w leady (MQL), <strong>segmentacja</strong> (rola/branża/problem - np. KSeF), budowanie zaufania (<strong>Premium Partner</strong>, <strong>Case Studies</strong>).</p>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="subsection-container">
+                         <h4 class="subsection-title text-green-700">Magnesy na Leady (Segmentowane!) & Nurturing</h4>
+                         <ul class="activity-list">
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/file-text.svg" alt="Ebook/Raport" class="funnel-icon text-green-600" loading="lazy">
+                                <div><strong>Ebooki/Raporty/Checklisty:</strong> <span class="activity-note">np. "Przewodnik KSeF", "Checklista Low-Code", "Raport: Automatyzacja w Logistyce".</span></div>
+                            </li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/file-check-2.svg" alt="Case Study" class="funnel-icon text-green-600" loading="lazy">
+                                <div><strong>Case Studies:</strong> <span class="activity-note">np. Mota-Engil, Alior Bank - z <strong>wynikami</strong>.</span></div>
+                            </li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/calendar-days.svg" alt="Webinar" class="funnel-icon text-green-600" loading="lazy"><span><strong>Webinary Tematyczne</strong> (np. KSeF w WEBCON).</span></li>
+                             <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/graduation-cap.svg" alt="Szkolenia" class="funnel-icon text-green-600" loading="lazy"><span><strong>Szkolenia / Akademia:</strong> Oferta dla zaangażowanych.</span></li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/layout-list.svg" alt="Infrastruktura" class="funnel-icon text-gray-600" loading="lazy"><span><strong>Infrastruktura:</strong> Landing Pages (z CTA!), Formularze, CRM/MA.</span></li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mails.svg" alt="Email Nurturing" class="funnel-icon text-teal-700" loading="lazy"><span><strong>Email Marketing:</strong> <strong>Segmentowane</strong> sekwencje nurturingowe.</span></li>
+                        </ul>
+                    </div>
+                    <div class="subsection-container">
+                        <h4 class="subsection-title text-green-700">Działania Płatne (MOFU Lead Gen / Remarketing - Budżet ~2800 zł)</h4>
+                        <ul class="activity-list">
+                             <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/facebook.svg" alt="Meta Ads" class="funnel-icon text-indigo-700" loading="lazy">
+                                 <div>
+                                    <strong>Meta Ads (<span class="budget-note">~1200 zł</span>):</strong>
+                                     <ul class="sub-list">
+                                         <li><strong>Cel:</strong> Generowanie MQL (z zimnego ruchu i remarketingu #1).</li>
+                                         <li><strong>Strategia:</strong> Promocja <strong>segmentowanych LM/CS</strong> (Karuzela!) do zimnych grup (Lookalikes, Zainteresowania) ORAZ Remarketing na <a href="#lista-1-definicja" class="internal-link"><strong>Listę #1</strong></a> z ofertą LM/CS/Webinar.</li>
+                                     </ul>
+                                 </div>
+                            </li>
+                             <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/linkedin.svg" alt="LinkedIn Ads" class="funnel-icon text-sky-800" loading="lazy">
+                                <div>
+                                <strong>LinkedIn Ads (<span class="budget-note">~1100 zł</span>):</strong>
+                                     <ul class="sub-list">
+                                         <li><strong>Cel:</strong> Ruch/Zaangażowanie/Zasięg dla wartościowych treści, budowanie autorytetu.</li>
+                                          <li><strong>Strategia/Format:</strong> Głównie <strong>Thought Leader Ads</strong> (promocja LM/CS/Blog/Video "od" ekspertów - wymaga zgody!). Cel: Kliknięcia, Obejrzenia wideo.</li>
+                                          <li><strong>Treść/Oferta:</strong> Linki do kluczowych, <strong>segmentowanych LM/CS</strong> lub artykułów blogowych.</li>
+                                         <li><strong>Targetowanie:</strong> Precyzyjne B2B (Stanowiska, <strong>Branże</strong>, Umiejętności).</li>
+                                     </ul>
+                                 </div>
+                            </li>
+                             <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/youtube.svg" alt="YouTube Ads" class="funnel-icon text-red-700" loading="lazy">
+                                <div>
+                                    <strong>YouTube Ads (<span class="budget-note">~500 zł</span>):</strong>
+                                     <ul class="sub-list">
+                                         <li><strong>Cel:</strong> Kierowanie ruchu na LM/Webinar, Remarketing wideo.</li>
+                                         <li><strong>Formaty:</strong> In-Feed Video Ads, Skippable In-Stream z CTA.</li>
+                                         <li><strong>Targetowanie:</strong> Remarketing (widzowie TOFU, odwiedzający stronę).</li>
+                                     </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+             <div class="flow-arrow">
+                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/arrow-down.svg" alt="Strzałka w dół" loading="lazy">
+            </div>
+        </section>
+
+        <section class="funnel-stage">
+             <div class="stage-content shadow-sm">
+                <h3 class="stage-title border-yellow-500 text-yellow-800">ETAP 3: BOFU - Decyzja i Konwersja Sprzedażowa</h3>
+                <p class="text-sm text-gray-600 mb-6">Cel: Konwersja MQL w SQL przez ofertę konsultacji/demo, podkreślenie wartości (<strong>Premium Partner</strong>, <strong>wyniki klientów</strong>, <strong>opinie</strong>).</p>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="subsection-container">
+                        <h4 class="subsection-title text-yellow-700">Oferta i Działania Sprzedażowe</h4>
+                        <ul class="activity-list">
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/phone.svg" alt="Konsultacja" class="funnel-icon text-yellow-700" loading="lazy"><span><strong>Oferta Główna:</strong> Bezpłatna Konsultacja / Demo (WEBCON BPS, Power Platform, KSeF).</span></li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/clipboard-check.svg" alt="Infrastruktura BOFU" class="funnel-icon text-gray-600" loading="lazy"><span><strong>Infrastruktura:</strong> Landing Page BOFU (z <strong>opiniami!</strong>), Formularz/Kalendarz.</span></li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/user-round-check.svg" alt="Sprzedaż" class="funnel-icon text-orange-700" loading="lazy"><span><strong>Sprzedaż:</strong> Kontakt handlowca z MQL, prowadzenie konsultacji/dem.</span></li>
+                        </ul>
+                    </div>
+                    <div class="subsection-container">
+                        <h4 class="subsection-title text-yellow-700">Działania Płatne (Konwersja - Budżet ~3300 zł)</h4>
+                        <ul class="activity-list">
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/search.svg" alt="Google Search Ads" class="funnel-icon text-blue-700" loading="lazy">
+                                <div>
+                                <strong>Google Ads - Search (<span class="budget-note">~2600 zł</span>):</strong>
+                                    <ul class="sub-list">
+                                         <li><strong>Cel:</strong> Przechwycenie popytu, generowanie SQL.</li>
+                                         <li><strong>Strategia:</strong> Targetowanie Brand, Platformy, Rozwiązania (<strong>KSeF!</strong>), Problemy. <strong>Agresywniejsze bidowanie</strong>.</li>
+                                         <li><strong class="warning-note">Wymaga Pilnej Optymalizacji!</strong> (Struktura, QS, Wykluczenia).</li>
+                                     </ul>
+                                </div>
+                            </li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/facebook.svg" alt="Meta Ads Conv." class="funnel-icon text-indigo-800" loading="lazy">
+                                <div>
+                                <strong>Meta Ads (<span class="budget-note">~700 zł</span> z 2700 zł):</strong>
+                                     <ul class="sub-list">
+                                         <li><strong>Cel:</strong> Konwersja MQL na SQL.</li>
+                                         <li><strong>Strategia:</strong> Remarketing na <a href="#lista-2-definicja" class="internal-link"><strong>Listę #2 (Leady MQL)</strong></a>.</li>
+                                         <li><strong>Treść/Oferta:</strong> Reklamy z CTA na Konsultację/Demo, pokazujące <strong>opinie</strong>, <strong>wyniki CS</strong>, status <strong>Premium Partnera</strong>.</li>
+                                     </ul>
+                                </div>
+                             </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+             <div class="flow-arrow">
+                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/arrow-down.svg" alt="Strzałka w dół" loading="lazy">
+            </div>
+        </section>
+
+        <section class="funnel-stage">
+             <div class="stage-content shadow-sm bg-gray-50">
+                <h3 class="stage-title border-gray-500 text-gray-800">ETAP 4: Post-Konwersja - Sprzedaż i Utrzymanie</h3>
+                 <p class="text-sm text-gray-600 mb-6">Cel: Zamknięcie sprzedaży, utrzymanie klienta, dosprzedaż.</p>
+                 <div class="subsection-container bg-white">
+                     <ul class="activity-list">
+                        <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/handshake.svg" alt="Sprzedaż" class="funnel-icon text-gray-700" loading="lazy"><span>Proces sprzedażowy (oferta, umowa).</span></li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/user-cog.svg" alt="Onboarding" class="funnel-icon text-gray-700" loading="lazy"><span>Onboarding klienta i wsparcie.</span></li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/graduation-cap.svg" alt="Szkolenia" class="funnel-icon text-gray-700" loading="lazy"><span>Dedykowane szkolenia (Nexperts Academy).</span></li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/refresh-ccw.svg" alt="Utrzymanie" class="funnel-icon text-gray-700" loading="lazy"><span>Budowanie relacji, newsletter dla klientów.</span></li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/trending-up.svg" alt="Upsell" class="funnel-icon text-gray-700" loading="lazy"><span>Cross-selling / Up-selling (np. Power BI, nowe procesy).</span></li>
+                    </ul>
+                 </div>
+            </div>
+        </section>
+
+        <section class="mt-10 pt-6 border-t border-gray-300">
+             <h3 class="text-xl font-semibold mb-6 text-gray-800 text-center">Elementy Wspierające Cały Lejek</h3>
+             <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-gray-700">
+                 <span class="flex items-center"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/bar-chart-3.svg" alt="Analityka" class="funnel-icon text-gray-600" loading="lazy">Analityka (GA4, GTM)</span>
+                 <span class="flex items-center"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/crosshair.svg" alt="Śledzenie" class="funnel-icon text-gray-600" loading="lazy">Śledzenie (UTM, Piksele, Konwersje)</span>
+                 <span class="flex items-center"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/database.svg" alt="CRM" class="funnel-icon text-gray-600" loading="lazy">CRM / Marketing Automation</span>
+                 <span class="flex items-center"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/settings-2.svg" alt="Optymalizacja" class="funnel-icon text-gray-600" loading="lazy">Optymalizacja i Testy A/B</span>
+                 <span class="flex items-center"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/users-round.svg" alt="Współpraca" class="funnel-icon text-gray-600" loading="lazy"><strong>Współpraca Marketingu i Sprzedaży</strong></span>
+             </div>
+        </section>
+
+    </div>
+    <hr class="section-divider">
+
+     <div class="container mx-auto max-w-5xl mt-12 persona-section">
+         <h2 class="persona-title">Strategie Dostosowane do Buyer Person (Budżet 8000 PLN)</h2>
+
+         <div class="persona-tabs">
+             <button class="persona-tab active" data-target="persona-it">Specjalista / Manager IT</button>
+             <button class="persona-tab" data-target="persona-ksiegowy">Księgowy / Główny Księgowy</button>
+             <button class="persona-tab" data-target="persona-finansowy">Dyrektor Finansowy (CFO)</button>
+         </div>
+
+         <div class="persona-content-container">
+             <div class="persona-content active" id="persona-it">
+                 <h3 class="persona-name">Persona: Specjalista / Manager IT</h3>
+                 <p class="persona-needs">Potrzeby/Obawy: Integracja, bezpieczeństwo, skalowalność, techniczne aspekty WEBCON/Power Platform, low-code, odciążenie działu IT.</p>
+                 <h4 class="persona-stage-title">TOFU</h4>
+                 <ul class="persona-content-list">
+                     <li><strong>Treści:</strong> Blog/YT/Podcast o architekturze WEBCON, low-code, bezpieczeństwie workflow, integracji.
+                        <ul class="blog-topic-list">
+                            <li>Automatyzacja procesów IT: Jak uwolnić czas specjalistów i skupić się na innowacjach?</li>
+                            <li>Digitalizacja infrastruktury IT: Jak zwiększyć bezpieczeństwo i efektywność systemów w firmie?</li>
+                            <li>Low-code dla działu IT: Jak przyspieszyć rozwój oprogramowania i zautomatyzować procesy?</li>
+                        </ul>
+                     </li>
+                     <li><strong>Reklamy Płatne:</strong> LI (stanowiska IT, umiejętności), YT (kanały tech.), Meta (zainteresowania IT).</li>
+                 </ul>
+                 <h4 class="persona-stage-title">MOFU</h4>
+                  <ul class="persona-content-list">
+                     <li><strong>Lead Magnets:</strong> Checklista "Bezpieczeństwo Low-Code", "WEBCON Technical Deep Dive", Case Study (techniczne).</li>
+                     <li><strong>Webinar:</strong> "Integracja WEBCON z ERP".</li>
+                     <li><strong>Reklamy Płatne:</strong> LI (TLA/SC promujące techniczne LM/CS do ról IT - cel: ruch/zaangażowanie), Meta (Remarketing #1, promocja LM do Lookalikes), YT (Remarketing, reklamy na LP LM).</li>
+                     <li><strong>Nurturing:</strong> Email z technicznymi wskazówkami, info o aktualizacjach.</li>
+                 </ul>
+                 <h4 class="persona-stage-title">BOFU</h4>
+                 <ul class="persona-content-list">
+                     <li><strong>Oferta:</strong> Demo Techniczne, Konsultacja z Architektem.</li>
+                     <li><strong>Reklamy Płatne:</strong> Google Search (`webcon bps wdrożenie techniczne`), Meta Remarketing #2 (techniczne benefity, ekspertyza Nexpertis).</li>
+                 </ul>
+             </div>
+
+             <div class="persona-content" id="persona-ksiegowy">
+                 <h3 class="persona-name">Persona: Księgowy / Główny Księgowy</h3>
+                 <p class="persona-needs">Potrzeby/Obawy: Zgodność z KSeF, szybkość/poprawność obiegu faktur, efektywność, redukcja błędów, archiwizacja.</p>
+                 <h4 class="persona-stage-title">TOFU</h4>
+                 <ul class="persona-content-list">
+                     <li><strong>Treści:</strong> Blog/YT/Podcast o KSeF (wymagania, terminy), automatyzacji w księgowości.
+                        <ul class="blog-topic-list">
+                             <li>Digitalizacja księgowości: Jak zautomatyzować procesy i uniknąć błędów?</li>
+                             <li>Obieg faktur bez papieru: Jak wdrożyć system elektronicznego obiegu dokumentów i zyskać na efektywności?</li>
+                             <li>KSeF: Co każdy księgowy powinien wiedzieć o Krajowym Systemie e-Faktur?</li>
+                        </ul>
+                     </li>
+                     <li><strong>Reklamy Płatne:</strong> LI (stanowiska księgowe), Meta (zainteresowania Finanse/Podatki), YT (wyzwania KSeF).</li>
+                 </ul>
+                 <h4 class="persona-stage-title">MOFU</h4>
+                  <ul class="persona-content-list">
+                     <li><strong>Lead Magnets:</strong> Ebook "KSeF dla Księgowych", Checklista "Automatyzacja Obiegu Faktur".</li>
+                     <li><strong>Webinar:</strong> "KSeF w WEBCON - Praktyczne Rozwiązania".</li>
+                     <li><strong>Reklamy Płatne:</strong> LI (TLA/SC promujące LM/CS o KSeF do ról księgowych - cel: ruch/zaangażowanie), Meta (Remarketing #1, promocja LM KSeF), YT (reklamy na LP LM/Webinaru KSeF).</li>
+                     <li><strong>Nurturing:</strong> Email o KSeF, obiegu faktur, korzyściach WEBCON dla księgowości.</li>
+                 </ul>
+                 <h4 class="persona-stage-title">BOFU</h4>
+                 <ul class="persona-content-list">
+                     <li><strong>Oferta:</strong> Konsultacja KSeF, Demo Obiegu Faktur.</li>
+                     <li><strong>Reklamy Płatne:</strong> Google Search (`ksef webcon`, `system obiegu faktur ksef`), Meta Remarketing #2 (compliance, oszczędność czasu).</li>
+                 </ul>
+             </div>
+
+              <div class="persona-content" id="persona-finansowy">
+                 <h3 class="persona-name">Persona: Dyrektor Finansowy (CFO)</h3>
+                 <p class="persona-needs">Potrzeby/Obawy: ROI, redukcja kosztów, compliance (KSeF), raportowanie finansowe, wsparcie decyzji strategicznych (Power BI).</p>
+                 <h4 class="persona-stage-title">TOFU</h4>
+                 <ul class="persona-content-list">
+                     <li><strong>Treści:</strong> Blog/YT/Podcast o ROI digitalizacji, strategicznym wpływie KSeF, BI w finansach.
+                         <ul class="blog-topic-list">
+                             <li>Jak zmierzyć ROI z wdrożenia systemu workflow?</li>
+                             <li>KSeF – strategiczne implikacje dla finansów firmy.</li>
+                             <li>Power BI jako narzędzie wsparcia decyzji finansowych.</li>
+                         </ul>
+                     </li>
+                     <li><strong>Reklamy Płatne:</strong> LI (stanowiska CFO/Dyr. Finansowy), Meta (zainteresowania Zarządzanie Finansami), YT (wpływ digitalizacji na wyniki).</li>
+                 </ul>
+                 <h4 class="persona-stage-title">MOFU</h4>
+                  <ul class="persona-content-list">
+                     <li><strong>Lead Magnets:</strong> Raport "ROI z Automatyzacji Procesów Finansowych", Kalkulator Oszczędności KSeF, Case Study (wyniki finansowe).</li>
+                     <li><strong>Webinar:</strong> "Strategiczne Zarządzanie Finansami z WEBCON i Power BI".</li>
+                     <li><strong>Reklamy Płatne:</strong> LI (TLA/SC promujące LM/CS o ROI do ról senior finance - cel: ruch/zaangażowanie), Meta (Remarketing #1, promocja Raportu ROI), YT (reklamy na LP Raportu/Webinaru).</li>
+                     <li><strong>Nurturing:</strong> Email o optymalizacji kosztów, raportowaniu, korzyściach WEBCON/Power BI.</li>
+                 </ul>
+                 <h4 class="persona-stage-title">BOFU</h4>
+                 <ul class="persona-content-list">
+                     <li><strong>Oferta:</strong> Konsultacja Strategiczna (ROI), Dedykowane Demo dla Finansów.</li>
+                     <li><strong>Reklamy Płatne:</strong> Google Search (`webcon bps roi`, `power bi dla finansów`), Meta Remarketing #2 (KPI finansowe, redukcja ryzyka).</li>
+                 </ul>
+             </div>
+         </div>
+     </div>
+
+
+    <hr class="section-divider">
+
+    <div class="remarketing-container mx-auto mt-12">
+        <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">Strategia Remarketingu Meta Ads: Dwie Listy</h2>
+        <p class="text-center text-gray-600 mb-10 text-sm">Wyjaśnienie celu i działania dla każdej z list remarketingowych (uzupełnienie do głównego lejka).</p>
+
+        <div class="grid md:grid-cols-3 gap-4 items-start">
+
+            <div class="list-container shadow-sm" id="lista-1-definicja">
+                <h3 class="list-title text-blue-700">
+                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/users.svg" alt="Grupa 1" class="list-icon" loading="lazy">
+                    Lista #1: Odwiedzający
+                </h3>
+                <div class="section-title">Kto trafia na listę?</div>
+                <div class="content"><ul><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mouse-pointer-click.svg" alt="Klik" loading="lazy"><span>Osoby, które odwiedziły stronę WWW (śledzone Pixelem Meta).</span></li><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/user-x.svg" alt="Brak konwersji" loading="lazy"><span>Nie podjęły jeszcze kluczowej akcji (np. pobranie LM).</span></li></ul></div>
+                <div class="section-title">Cel Reklam Remarketingowych</div>
+                <div class="content"><ul><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/user-plus.svg" alt="Cel" loading="lazy"><span>Konwersja na Leada (MQL).</span></li><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/arrow-right-left.svg" alt="Cel" loading="lazy"><span>Przesunięcie dalej w lejku (do MOFU).</span></li></ul></div>
+                <div class="section-title">Przykładowe Oferty / Treści Reklam</div>
+                <div class="content"><ul><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/file-text.svg" alt="LM" loading="lazy"><span>Promocja Lead Magnetów (Ebooki, Raporty - np. o KSeF).</span></li><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/file-check-2.svg" alt="CS" loading="lazy"><span>Prezentacja Case Studies (np. karuzela z wynikami).</span></li><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/calendar-days.svg" alt="Webinar" loading="lazy"><span>Zaproszenie na Webinar.</span></li><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/newspaper.svg" alt="Blog" loading="lazy"><span>Przypomnienie o wartościowym artykule na blogu.</span></li></ul></div>
+            </div>
+
+             <div class="flow-arrow-h">
+                <p class="text-xs text-gray-500 mb-1">Konwersja MOFU (np. pobranie LM)</p>
+                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/arrow-right.svg" alt="Strzałka w prawo" loading="lazy">
+            </div>
+
+
+            <div class="list-container shadow-sm" id="lista-2-definicja">
+                <h3 class="list-title text-green-700">
+                     <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/user-check.svg" alt="Grupa 2" class="list-icon" loading="lazy">
+                    Lista #2: Leady MQL
+                </h3>
+                 <div class="section-title">Kto trafia na listę?</div>
+                 <div class="content"><ul><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/download.svg" alt="Pobranie" loading="lazy"><span>Osoby, które pobrały Lead Magnet.</span></li><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/calendar-check.svg" alt="Zapis" loading="lazy"><span>Zapisały się na Webinar.</span></li><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/list-checks.svg" alt="Formularz" loading="lazy"><span>Wypełniły formularz kontaktowy MOFU.</span></li><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail-check.svg" alt="Email" loading="lazy"><span>Są znanymi kontaktami (np. z listy email).</span></li></ul></div>
+                 <div class="section-title">Cel Reklam Remarketingowych</div>
+                 <div class="content"><ul><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/user-round-check.svg" alt="Cel" loading="lazy"><span>Konwersja na Leada Sprzedażowego (SQL).</span></li><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/phone-forwarded.svg" alt="Cel" loading="lazy"><span>Skłonienie do umówienia Konsultacji / Demo.</span></li><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/arrow-down-right.svg" alt="Cel" loading="lazy"><span>Przesunięcie do etapu BOFU / Sprzedaży.</span></li></ul></div>
+                 <div class="section-title">Przykładowe Oferty / Treści Reklam</div>
+                 <div class="content"><ul><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/phone.svg" alt="Konsultacja" loading="lazy"><span>Bezpośrednie zaproszenie na Konsultację/Demo.</span></li><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/award.svg" alt="Wartość" loading="lazy"><span>Przypomnienie o korzyściach (np. status Premium Partner WEBCON).</span></li><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/star.svg" alt="Opinia" loading="lazy"><span>Pokazanie opinii zadowolonych klientów (social proof).</span></li><li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/file-check-2.svg" alt="CS" loading="lazy"><span>Prezentacja Case Study (np. z branży leada) z silnym CTA do kontaktu.</span></li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.persona-tab');
+        const contents = document.querySelectorAll('.persona-content');
+
+        function switchTab(targetId) {
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => {
+                c.classList.remove('active');
+                c.style.display = 'none';
+            });
+
+            const clickedTab = document.querySelector(`.persona-tab[data-target="${targetId}"]`);
+            const targetContent = document.getElementById(targetId);
+
+            if (clickedTab) {
+                clickedTab.classList.add('active');
+            }
+            if (targetContent) {
+                targetContent.classList.add('active');
+                targetContent.style.display = 'block';
+            }
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetId = tab.getAttribute('data-target');
+                switchTab(targetId);
+            });
+        });
+
+         document.addEventListener('DOMContentLoaded', () => {
+             const firstTabContent = document.querySelector('.persona-content.active');
+             if (firstTabContent) {
+                firstTabContent.style.display = 'block';
+             }
+             document.querySelectorAll('.persona-content:not(.active)').forEach(c => {
+                 c.style.display = 'none';
+             });
+         });
+
+    </script>
+
+</body>
+</html>
